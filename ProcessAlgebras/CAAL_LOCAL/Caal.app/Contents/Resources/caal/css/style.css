@@ -1,0 +1,586 @@
+@import url("hml-game.css");
+@import url("widget.transition-table.css");
+@import url("widget.zoom-process-explorer.css");
+@import url("widget.hmlformula-selector.css");
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font: normal 14px "Open Sans", "Arial";
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+a {
+    cursor: pointer;
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+}
+
+canvas {
+    display: block;
+}
+
+textarea {
+    resize: none;
+}
+
+.monospace {
+    font: normal 15px "Inconsolata";
+}
+
+.small-caps {
+    font-variant: small-caps;
+}
+
+.relative {
+    position: relative;
+}
+
+.overline {
+    text-decoration: overline;
+}
+
+
+/*
+ * Custom Bootstrap styles
+ */
+
+nav.navbar {
+    margin-bottom: 15px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-radius: 0;
+}
+
+.navbar-header .navbar-brand {
+	font-variant: small-caps;
+    cursor: auto;
+}
+
+.navbar-header .navbar-brand:hover {
+    color: #777;
+}
+ 
+/* Align rightmost menu element with body */
+.navbar-right li:last-child a {
+    padding-right: 0;
+}
+
+.navbar .divider-vertical {
+    height: 50px;
+    margin: 0 9px;
+    border-right: 1px solid #ffffff;
+    border-left: 1px solid #f2f2f2;
+}
+
+@media (max-width: 767px) {
+    .navbar-collapse .nav > .divider-vertical {
+        display: none;
+    }
+}
+
+.table-hover > tbody {
+    cursor: pointer;
+}
+
+#notification-box {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    background: rgba(50, 50, 50, 0.6);
+    color: #fff;
+    text-align: center;
+    display: none;
+    z-index: 9999;
+}
+
+
+/*
+ * Activity styles
+ */
+
+#editor-container, #explorer-container, #verifier-container, #game-container, #hml-game-container {
+    margin-bottom: 15px;
+}
+
+
+/*
+ * Editor activity styles
+ */
+
+#editor-container .row {
+    margin-bottom: 15px;
+}
+
+#editor-container div.row:last-child {
+    margin-bottom: 0;
+}
+
+#editor-container h4 {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    line-height: 34px;
+}
+
+.controls .control-group {
+    float: right;
+    margin-left: 20px
+}
+
+.editor-border {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .075);
+}
+
+#editor {
+    min-height: 300px;
+    line-height: 20px;
+}
+
+
+/*
+ * Explorer activity styles
+ */
+
+#explorer-container nav {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.yamm {
+    min-height: 0;
+    background-color: #fff;
+    border: none;
+    margin-bottom: 15px;
+}
+
+#explorer-process-list {
+    width: 150px;
+    float: left;
+    margin-right: 20px;
+}
+
+#explorer-main input[type=range] {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#explorer-main .input-group {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 126px;
+}
+
+#explorer-main input[type=text] {
+    text-align: center;
+}
+
+#explorer-canvas {
+    border: 1px solid #e7e7e7;
+    overflow: auto;
+}
+
+#explorer-canvas-tooltip {
+    position: absolute;
+}
+
+#explorer-canvas .tooltip, #explorer-transitions .tooltip, #explorer-transitions table tbody {
+    font: normal 15px "Inconsolata";
+}
+
+#explorer-transitions {
+    height: 176px; /* Fits four transitions */
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-top: none;
+    overflow: auto;
+}
+
+#explorer-transitions table {
+    margin: 0;
+}
+
+#explorer-transitions table th.narrow {
+    width: 15%;
+    min-width: 140px;
+}
+
+@media (max-width: 991px) {
+    #explorer-process-list {
+        width: 100%;
+    }
+
+    .yamm ul.nav {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+#explorer-fullscreen-container:-webkit-full-screen {width: 100%; height: 100%; padding: 15px; background-color: #fff;}
+#explorer-fullscreen-container:-moz-full-screen    {width: 100%; height: 100%; padding: 15px; background-color: #fff;}
+#explorer-fullscreen-container:-ms-fullscreen      {width: 100%; height: 100%; padding: 15px; background-color: #fff;}
+#explorer-fullscreen-container:-o-full-screen      {width: 100%; height: 100%; padding: 15px; background-color: #fff;}
+#explorer-fullscreen-container:full-screen         {width: 100%; height: 100%; padding: 15px; background-color: #fff;}
+#explorer-fullscreen-container:fullscreen          {width: 100%; height: 100%; padding: 15px; background-color: #fff;}
+
+
+/*
+ * Verifier activity styles
+ */
+
+#verifier-container .row, #property-modal .row {
+    margin-bottom: 15px;
+}
+
+#verifier-container div.row:last-child, #property-modal div.row:last-child {
+    margin-bottom: 0;
+}
+
+#property-table td, #property-table th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+#property-table td:nth-child(2), #property-table th:nth-child(2), #property-table td:nth-child(3), #property-table th:nth-child(3) {
+    text-align: left;
+}
+
+#property-table td:nth-child(3) {
+    font: normal 15px "Inconsolata";
+}
+
+#property-table th.narrow {
+    width: 8%;
+}
+
+#property-table span {
+    display: block;
+    padding-top: 5px;
+    margin-left: 25px;
+}
+
+#property-modal select {
+    margin-bottom: 10px;
+}
+
+#property-modal label {
+    font-weight: normal;
+}
+
+#property-modal .divider {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#property-modal .relation-process {
+    width: 25%;
+    float: left;
+}
+
+#property-modal .transition-type {
+    width: 20%;
+    float: left;
+    margin: 0 0 0 15px;
+}
+
+#property-modal .relation-type {
+    width: calc(30% - 45px);
+    float: left;
+    margin: 0 15px 0 15px;
+}
+
+#property-modal .hml-process {
+    width: 25%;
+    float: left;
+}
+
+#property-modal .turnstile {
+    width: 5%;
+    float: left;
+    margin: 0 15px 0 15px;
+    text-align: center;
+    font: normal 24px "Inconsolata";
+    line-height: 68px;
+}
+
+#property-modal .turnstile span {
+    position: relative;
+    top: 6px;
+}
+
+#property-modal .hml-formula {
+    width: calc(70% - 30px);
+    float: left;
+}
+
+#property-modal .editor-border {
+    margin-bottom: 10px;
+}
+
+#add-hml-formula {
+    display: none;
+}
+
+#hml-formula-editor {
+    min-height: 20px;
+    line-height: 20px;
+}
+
+#hml-definitions-editor {
+    min-height: 80px;
+    line-height: 20px;
+}
+
+
+/*
+ * Games activity styles
+ */
+
+#game-options {
+    margin-bottom: 15px;
+}
+
+#game-options div, #game-options select {
+    margin-right: 20px;
+}
+
+#game-options div:last-child, #game-options select:last-child {
+    margin-right: 0;
+}
+
+#game-left-process, #game-right-process {
+    width: 150px;
+    float: left;
+}
+
+#game-ccs-type {
+    width: 95px;
+    float: left;
+}
+
+#game-tccs-type {
+    width: 155px;
+    float: left;
+}
+
+#game-relation {
+    width: 135px;
+    float: left;
+}
+
+#game-left {
+    padding-right: 0;
+}
+
+#game-right {
+    padding-left: 0;
+}
+
+#game-left .input-group, #game-right .input-group {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 88px;
+}
+
+#depth-left, #depth-right {
+    text-align: center;
+}
+
+#game-left-canvas, #game-right-canvas {
+    border: 1px solid #e7e7e7;
+    overflow: auto;
+}
+
+#game-left-canvas .tooltip, #game-right-canvas .tooltip {
+    font: normal 15px "Inconsolata";
+}
+
+#game-right-canvas {
+    border-left: none;
+}
+
+#game-canvas-tooltip-left, #game-canvas-tooltip-right {
+    position: absolute;
+}
+
+#game-main input[type=range] {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#game-status .col-md-5 {
+    padding-right: 0;
+}
+
+#game-status .col-md-7 {
+    padding-left: 0;
+}
+
+#game-status .tooltip, #game-transitions-table tbody {
+    font: normal 15px "Inconsolata";
+    color: #333;
+}
+
+#game-log {
+    height: 225px;
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid #e7e7e7;
+    border-top: none;
+}
+
+#game-log h4.game-round {
+    font-weight: bold;
+}
+
+#game-log p {
+    margin: 0 0 10px 20px;
+}
+
+#game-log p:last-child {
+    margin-bottom: 0;
+}
+
+#game-log p.intro, #game-log p.outro {
+    margin-left: 0;
+}
+
+#game-log p.outro {
+    margin-top: 20px;
+}
+
+#game-log h4 {
+    margin: 20px 0 10px 0;
+}
+
+#game-transitions {
+    height: 225px;
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid #e7e7e7;
+    border-top: none;
+    border-left: none;
+}
+
+@media (max-width: 991px) {
+    #game-left-process, #game-right-process, #game-ccs-type, #game-tccs-type, #game-relation {
+        width: 100%;
+    }
+
+    #game-left {
+        padding-right: 15px;
+    }
+
+    #game-right {
+        padding-left: 15px;
+    }
+
+    #game-right-canvas {
+        border-top: none;
+        border-left: 1px solid #e7e7e7;
+    }
+
+    #game-transitions {
+        border-left: 1px solid #e7e7e7;
+    }
+
+    #game-status .col-md-5 {
+        padding-right: 15px;
+    }
+
+    #game-status .col-md-7 {
+        padding-left: 15px;
+    }
+}
+
+#game-container:-webkit-full-screen {width: 100%; height: 100%; background-color: #fff; padding: 15px; margin-bottom: 0}
+#game-container:-moz-full-screen    {width: 100%; height: 100%; background-color: #fff; padding: 15px; margin-bottom: 0}
+#game-container:-ms-fullscreen      {width: 100%; height: 100%; background-color: #fff; padding: 15px; margin-bottom: 0}
+#game-container:-o-full-screen      {width: 100%; height: 100%; background-color: #fff; padding: 15px; margin-bottom: 0}
+#game-container:full-screen         {width: 100%; height: 100%; background-color: #fff; padding: 15px; margin-bottom: 0}
+#game-container:fullscreen          {width: 100%; height: 100%; background-color: #fff; padding: 15px; margin-bottom: 0}
+
+
+/*
+ * About/Help styles
+ */
+
+#helpModal th {
+    width: 50%;
+}
+
+#version {
+    float: left;
+}
+
+
+/*
+ *  Tooltip and popover styles
+ */
+ .ccs-tooltip, .ccs-tooltip-process, .ccs-tooltip-data {
+    background-color: #eee;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    padding: 0px 2px 0px 2px;
+    cursor: pointer;
+    font: normal 15px "Inconsolata";
+}
+
+.tooltip {
+    position: fixed;
+}
+
+.tooltip.in {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+
+.tooltip-inner {
+    background-color: #eee;
+    border: 1px solid #bbb;
+    color: #333;
+    max-width: 300px;
+}
+
+.tooltip-arrow {
+    border-top-color: #bbb !important;
+}
+
+.popover.bottom {
+    max-width: 450px;
+    background-color: #f7f7f7;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #f7f7f7;
+}
+
+.popover.bottom > .popover-content {
+    background-color: #fff;
+}
+
+.popover-content p:last-child {
+    margin-bottom: 0;
+}

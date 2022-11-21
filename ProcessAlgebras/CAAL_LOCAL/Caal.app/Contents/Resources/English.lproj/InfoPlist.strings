@@ -1,0 +1,4 @@
+CFBundleName = "Caal";
+CFBundleShortVersionString = "1.0";
+CFBundleGetInfoString = "Caal version 1.0 Copyright 2015 Aalborg University";
+NSHumanReadableCopyright = "Copyright 2015 Aalborg University.";

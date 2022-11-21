@@ -1,0 +1,3 @@
+[submodule "ProcessAlgebras/CAAL"]
+	path = ProcessAlgebras/CAAL
+	url = https://github.com/CAAL/CAAL/
