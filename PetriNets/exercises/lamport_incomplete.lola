@@ -1,5 +1,5 @@
 
-PLACE a1, a2, a3, a4, a5, xt, xf, yt, yf, b1, b2, b3, b4, b5, b6, b7, b8; 
+PLACE a1, a2, a3, a4, a5, xt, xf, yt, yf, b1, b2, b3, b4, b5, b6, b7, b8;
 
 MARKING a1: 1, b1: 1, xf: 1, yf: 1; 
 
@@ -54,3 +54,15 @@ PRODUCE b1: 1, yf: 1;
 TRANSITION t13
 CONSUME b8: 1, yt: 1;
 PRODUCE b1: 1, yf: 1;
+
+TRANSITION t14
+CONSUME a1:1, xf: 1;
+PRODUCE a2: 1, xt: 1;
+
+TRANSITION t15
+CONSUME a2:1, yf: 1;
+PRODUCE a3: 1, yf: 1;
+
+TRANSITION t16
+CONSUME a3:1, xt: 1;
+PRODUCE a1: 1, xf: 1;
