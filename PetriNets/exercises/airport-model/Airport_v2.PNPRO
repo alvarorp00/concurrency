@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This project file has been saved by the New GreatSPN Editor, v.100 --><project name="Airport_v2" version="121">
+  <gspn name="PT" show-color-cmd="false" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <transition name="AirSpaceArrive" nservers-x="0.5" type="EXP" x="11.55" y="5.0"/>
+      <place label-y="2.0" name="Air" x="16.0" y="10.0"/>
+      <transition name="AirSpaceLeave" nservers-x="0.5" type="EXP" x="21.55" y="5.0"/>
+      <place marking="10" name="AirportCapacity" x="51.0" y="10.0"/>
+      <place label-x="4.5" label-y="0.0" marking="1" name="RunWayAFree" x="21.0" y="31.0"/>
+      <place label-x="-4.0" label-y="-1.0" name="RunWayAFull" x="11.0" y="31.0"/>
+      <place label-x="-4.0" label-y="0.0" marking="1" name="RunWayBFree" x="81.0" y="31.0"/>
+      <place label-x="3.5" label-y="-1.5" name="RunWayBFull" x="91.0" y="31.0"/>
+      <transition label-x="-2.0" name="LandA" nservers-x="0.5" type="EXP" x="21.55" y="19.0"/>
+      <transition label-x="2.0" name="LandB" nservers-x="0.5" type="EXP" x="81.55" y="19.0"/>
+      <transition label-x="-4.0" name="LeaveRunwayA" nservers-x="0.5" type="EXP" x="41.55" y="31.0"/>
+      <transition label-x="3.5" name="LeaveRunwayB" nservers-x="0.5" type="EXP" x="61.55" y="31.0"/>
+      <place label-x="1.5" label-y="-1.5" name="S1" x="51.0" y="31.0"/>
+      <transition label-x="4.0" label-y="-2.0" name="UnloadPassengers" nservers-x="0.5" type="EXP" x="51.55" y="46.0"/>
+      <transition name="LoadPassengers" nservers-x="0.5" type="EXP" x="71.55" y="46.0"/>
+      <place label-x="1.0" label-y="-1.5" name="S2" x="61.0" y="46.0"/>
+      <transition label-x="2.0" name="TakeOffA" nservers-x="0.5" type="EXP" x="26.55" y="41.0"/>
+      <transition label-x="2.0" name="TakeOffB" nservers-x="0.5" type="EXP" x="86.55" y="41.0"/>
+      <place label-x="1.0" label-y="-1.5" name="S3" x="81.0" y="46.0"/>
+      <place name="FlyA" x="31.0" y="41.0"/>
+      <place name="FlyB" x="91.0" y="41.0"/>
+      <transition name="FlyA_t" nservers-x="0.5" type="EXP" x="36.55" y="41.0"/>
+      <transition label-x="-2.0" name="FlyB_t" nservers-x="0.5" type="EXP" x="96.55" y="41.0"/>
+      <place marking="1" name="Excl_TA_LA" x="34.0" y="59.0"/>
+      <place marking="1" name="Excl_TB_LA" x="73.0" y="59.0"/>
+      <place marking="1" name="Excl_TB_LB" x="69.0" y="54.0"/>
+      <place marking="1" name="Excl_TA_LB" x="55.0" y="54.0"/>
+      <place label-y="-2.0" name="QueuedA" x="41.0" y="19.0"/>
+      <place label-y="-2.0" name="QueuedB" x="61.0" y="19.0"/>
+    </nodes>
+    <edges>
+      <arc head="Air" kind="OUTPUT" tail="AirSpaceArrive">
+        <point x="12.0" y="10.0"/>
+        <point x="12.0" y="11.0"/>
+      </arc>
+      <arc head="AirSpaceLeave" kind="INPUT" tail="Air">
+        <point x="22.0" y="11.0"/>
+      </arc>
+      <arc head="LandA" kind="INPUT" tail="Air">
+        <point x="22.0" y="14.5"/>
+      </arc>
+      <arc head="LandA" kind="INPUT" tail="RunWayAFree"/>
+      <arc head="RunWayAFull" kind="OUTPUT" tail="LandA">
+        <point x="12.0" y="20.0"/>
+      </arc>
+      <arc head="LandB" kind="INPUT" mult-k="0.5723632812500001" tail="Air">
+        <point x="51.0" y="15.5"/>
+        <point x="64.0" y="15.5"/>
+      </arc>
+      <arc head="LandB" kind="INPUT" tail="RunWayBFree"/>
+      <arc head="RunWayBFull" kind="OUTPUT" tail="LandB">
+        <point x="92.0" y="20.0"/>
+      </arc>
+      <arc head="LandA" kind="INPUT" tail="AirportCapacity">
+        <point x="42.0" y="11.0"/>
+      </arc>
+      <arc head="LandB" kind="INPUT" tail="AirportCapacity">
+        <point x="62.0" y="11.0"/>
+      </arc>
+      <arc head="LeaveRunwayA" kind="INPUT" tail="RunWayAFull">
+        <point x="12.0" y="37.0"/>
+        <point x="42.0" y="37.0"/>
+      </arc>
+      <arc head="LeaveRunwayB" kind="INPUT" tail="RunWayBFull">
+        <point x="92.0" y="37.0"/>
+        <point x="62.0" y="37.0"/>
+      </arc>
+      <arc head="RunWayAFree" kind="OUTPUT" tail="LeaveRunwayA">
+        <point x="32.0" y="32.0"/>
+        <point x="32.0" y="35.5"/>
+        <point x="22.0" y="35.5"/>
+      </arc>
+      <arc head="RunWayBFree" kind="OUTPUT" tail="LeaveRunwayB">
+        <point x="72.0" y="32.0"/>
+        <point x="72.0" y="35.5"/>
+        <point x="82.0" y="35.5"/>
+      </arc>
+      <arc head="S1" kind="OUTPUT" tail="LeaveRunwayA"/>
+      <arc head="S1" kind="OUTPUT" tail="LeaveRunwayB"/>
+      <arc head="UnloadPassengers" kind="INPUT" tail="S1"/>
+      <arc head="S2" kind="OUTPUT" tail="UnloadPassengers"/>
+      <arc head="LoadPassengers" kind="INPUT" tail="S2"/>
+      <arc head="S3" kind="OUTPUT" tail="LoadPassengers"/>
+      <arc head="TakeOffB" kind="INPUT" tail="S3">
+        <point x="87.0" y="47.0"/>
+      </arc>
+      <arc head="TakeOffA" kind="INPUT" tail="S3">
+        <point x="82.0" y="50.5"/>
+        <point x="27.0" y="50.5"/>
+        <point x="27.0" y="50.0"/>
+      </arc>
+      <arc head="FlyA" kind="OUTPUT" tail="TakeOffA"/>
+      <arc head="FlyA_t" kind="INPUT" tail="FlyA"/>
+      <arc head="FlyB" kind="OUTPUT" tail="TakeOffB"/>
+      <arc head="FlyB_t" kind="INPUT" tail="FlyB"/>
+      <arc head="FlyA_t" kind="INPUT" tail="RunWayAFull">
+        <point x="10.0" y="32.0"/>
+        <point x="10.0" y="47.0"/>
+        <point x="37.0" y="47.0"/>
+      </arc>
+      <arc head="FlyB_t" kind="INPUT" tail="RunWayBFull">
+        <point x="97.0" y="32.0"/>
+      </arc>
+      <arc head="TakeOffA" kind="INPUT" tail="RunWayAFree">
+        <point x="19.5" y="32.0"/>
+        <point x="19.5" y="42.0"/>
+      </arc>
+      <arc head="RunWayAFull" kind="OUTPUT" tail="TakeOffA">
+        <point x="24.0" y="44.5"/>
+        <point x="14.5" y="44.5"/>
+        <point x="14.5" y="32.0"/>
+      </arc>
+      <arc head="TakeOffB" kind="INPUT" tail="RunWayBFree">
+        <point x="84.0" y="32.0"/>
+        <point x="84.0" y="42.0"/>
+      </arc>
+      <arc head="RunWayBFull" kind="OUTPUT" tail="TakeOffB">
+        <point x="87.0" y="32.0"/>
+      </arc>
+      <arc head="AirportCapacity" kind="OUTPUT" tail="FlyA_t">
+        <point x="41.5" y="44.5"/>
+        <point x="41.5" y="52.5"/>
+        <point x="3.5" y="52.5"/>
+        <point x="4.0" y="3.0"/>
+        <point x="42.0" y="3.0"/>
+      </arc>
+      <arc head="AirportCapacity" kind="OUTPUT" tail="FlyB_t">
+        <point x="100.0" y="42.0"/>
+        <point x="100.0" y="3.0"/>
+        <point x="62.0" y="3.0"/>
+      </arc>
+      <arc head="RunWayAFree" kind="OUTPUT" tail="FlyA_t">
+        <point x="40.5" y="40.5"/>
+        <point x="40.5" y="38.5"/>
+        <point x="40.5" y="34.5"/>
+        <point x="40.5" y="34.0"/>
+        <point x="33.5" y="34.0"/>
+        <point x="33.5" y="29.5"/>
+        <point x="24.0" y="29.5"/>
+      </arc>
+      <arc head="RunWayBFree" kind="OUTPUT" tail="FlyB_t">
+        <point x="97.0" y="46.0"/>
+        <point x="103.0" y="46.0"/>
+        <point x="103.0" y="25.5"/>
+        <point x="86.0" y="25.5"/>
+      </arc>
+      <arc head="Air" kind="OUTPUT" tail="FlyA_t">
+        <point x="44.0" y="42.0"/>
+        <point x="44.0" y="54.5"/>
+        <point x="2.0" y="54.5"/>
+        <point x="2.0" y="16.5"/>
+        <point x="13.0" y="16.5"/>
+      </arc>
+      <arc head="Air" kind="OUTPUT" tail="FlyB_t">
+        <point x="85.5" y="63.5"/>
+        <point x="0.5" y="63.5"/>
+        <point x="0.5" y="56.5"/>
+        <point x="0.5" y="14.0"/>
+        <point x="9.0" y="14.0"/>
+      </arc>
+      <arc head="Excl_TA_LA" kind="OUTPUT" tail="FlyA_t">
+        <point x="39.0" y="44.5"/>
+        <point x="39.0" y="49.0"/>
+        <point x="39.0" y="56.5"/>
+      </arc>
+      <arc head="TakeOffA" kind="INPUT" tail="Excl_TA_LA">
+        <point x="35.0" y="45.5"/>
+        <point x="29.0" y="45.5"/>
+      </arc>
+      <arc head="TakeOffB" kind="INPUT" tail="Excl_TB_LA">
+        <point x="74.0" y="56.5"/>
+        <point x="79.0" y="56.5"/>
+        <point x="79.0" y="44.0"/>
+        <point x="85.5" y="44.0"/>
+      </arc>
+      <arc head="Excl_TB_LA" kind="OUTPUT" tail="FlyB_t">
+        <point x="84.0" y="60.0"/>
+      </arc>
+      <arc head="LandA" kind="INPUT" tail="Excl_TA_LA">
+        <point x="46.0" y="60.0"/>
+        <point x="46.0" y="25.0"/>
+        <point x="23.5" y="25.0"/>
+      </arc>
+      <arc head="LandA" kind="INPUT" tail="Excl_TB_LA">
+        <point x="47.5" y="60.0"/>
+        <point x="47.5" y="24.0"/>
+        <point x="24.5" y="24.0"/>
+      </arc>
+      <arc head="TakeOffA" kind="INPUT" tail="Excl_TA_LB">
+        <point x="51.5" y="55.0"/>
+        <point x="51.5" y="62.5"/>
+        <point x="25.5" y="62.5"/>
+        <point x="25.5" y="45.0"/>
+      </arc>
+      <arc head="Excl_TA_LB" kind="OUTPUT" tail="FlyA_t">
+        <point x="42.5" y="43.5"/>
+        <point x="42.5" y="52.5"/>
+        <point x="52.0" y="52.5"/>
+      </arc>
+      <arc head="LandB" kind="INPUT" tail="Excl_TA_LB">
+        <point x="56.0" y="49.5"/>
+        <point x="64.0" y="49.5"/>
+        <point x="64.0" y="41.5"/>
+        <point x="58.0" y="41.5"/>
+        <point x="58.0" y="27.0"/>
+      </arc>
+      <arc head="LandB" kind="INPUT" tail="Excl_TB_LB">
+        <point x="70.0" y="49.0"/>
+        <point x="65.5" y="40.5"/>
+        <point x="59.5" y="40.5"/>
+        <point x="59.5" y="28.5"/>
+        <point x="79.5" y="22.0"/>
+      </arc>
+      <arc head="Excl_TB_LB" kind="OUTPUT" tail="FlyB_t">
+        <point x="85.5" y="55.0"/>
+      </arc>
+      <arc head="TakeOffB" kind="INPUT" tail="Excl_TB_LB">
+        <point x="74.0" y="52.0"/>
+        <point x="85.0" y="52.0"/>
+        <point x="89.5" y="47.5"/>
+        <point x="89.5" y="44.0"/>
+      </arc>
+      <arc head="Excl_TB_LB" kind="OUTPUT" tail="LeaveRunwayB">
+        <point x="66.0" y="44.5"/>
+        <point x="66.0" y="55.0"/>
+      </arc>
+      <arc head="Excl_TA_LA" kind="OUTPUT" tail="LeaveRunwayA">
+        <point x="44.5" y="34.5"/>
+        <point x="44.5" y="57.0"/>
+      </arc>
+      <arc head="QueuedA" kind="OUTPUT" tail="LandA"/>
+      <arc head="QueuedB" kind="OUTPUT" tail="LandB"/>
+      <arc head="LeaveRunwayA" kind="INPUT" tail="QueuedA"/>
+      <arc head="LeaveRunwayB" kind="INPUT" tail="QueuedB"/>
+      <arc head="Excl_TA_LB" kind="OUTPUT" tail="LeaveRunwayB">
+        <point x="61.0" y="35.0"/>
+        <point x="49.5" y="35.0"/>
+        <point x="49.5" y="57.5"/>
+        <point x="60.0" y="57.5"/>
+        <point x="60.0" y="55.0"/>
+      </arc>
+      <arc head="Excl_TB_LA" kind="OUTPUT" tail="LeaveRunwayA">
+        <point x="51.0" y="29.0"/>
+        <point x="56.0" y="29.0"/>
+        <point x="56.0" y="43.0"/>
+        <point x="60.5" y="43.0"/>
+        <point x="77.0" y="43.0"/>
+        <point x="77.0" y="58.0"/>
+      </arc>
+    </edges>
+  </gspn>
+</project>

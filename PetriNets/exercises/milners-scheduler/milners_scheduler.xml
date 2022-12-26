@@ -1,32 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?><pnml>
 <net id="Net-One" type="P/T net">
 <token id="Default" enabled="true" red="0" green="0" blue="0"/>
-<place id="P0">
+<place id="flag1">
 <graphics>
-<position x="735.0" y="165.0"/>
+<position x="465.0" y="360.0"/>
 </graphics>
 <name>
-<value>P0</value>
-<graphics>
-<offset x="0.0" y="0.0"/>
-</graphics>
-</name>
-<initialMarking>
-<value>Default,1</value>
-<graphics>
-<offset x="0.0" y="0.0"/>
-</graphics>
-</initialMarking>
-<capacity>
-<value>0</value>
-</capacity>
-</place>
-<place id="P1">
-<graphics>
-<position x="600.0" y="360.0"/>
-</graphics>
-<name>
-<value>P1</value>
+<value>flag1</value>
 <graphics>
 <offset x="0.0" y="0.0"/>
 </graphics>
@@ -41,12 +21,52 @@
 <value>0</value>
 </capacity>
 </place>
-<place id="P2">
+<place id="flag2">
 <graphics>
 <position x="870.0" y="360.0"/>
 </graphics>
 <name>
-<value>P2</value>
+<value>flag2</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P1s">
+<graphics>
+<position x="465.0" y="225.0"/>
+</graphics>
+<name>
+<value>P1s</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P1w">
+<graphics>
+<position x="870.0" y="225.0"/>
+</graphics>
+<name>
+<value>P1w</value>
 <graphics>
 <offset x="0.0" y="0.0"/>
 </graphics>
@@ -61,12 +81,12 @@
 <value>0</value>
 </capacity>
 </place>
-<place id="P3">
+<place id="P2s">
 <graphics>
-<position x="735.0" y="450.0"/>
+<position x="465.0" y="495.0"/>
 </graphics>
 <name>
-<value>P3</value>
+<value>P2s</value>
 <graphics>
 <offset x="0.0" y="0.0"/>
 </graphics>
@@ -81,18 +101,18 @@
 <value>0</value>
 </capacity>
 </place>
-<place id="P4">
+<place id="P2w">
 <graphics>
-<position x="735.0" y="540.0"/>
+<position x="870.0" y="495.0"/>
 </graphics>
 <name>
-<value>P4</value>
+<value>P2w</value>
 <graphics>
 <offset x="0.0" y="0.0"/>
 </graphics>
 </name>
 <initialMarking>
-<value>Default,1</value>
+<value>Default,0</value>
 <graphics>
 <offset x="0.0" y="0.0"/>
 </graphics>
@@ -101,12 +121,12 @@
 <value>0</value>
 </capacity>
 </place>
-<transition id="T0">
+<transition id="a1">
 <graphics>
-<position x="600.0" y="240.0"/>
+<position x="675.0" y="300.0"/>
 </graphics>
 <name>
-<value>T0</value>
+<value>a1</value>
 <graphics>
 <offset x="-5.0" y="35.0"/>
 </graphics>
@@ -127,12 +147,12 @@
 <value>1</value>
 </priority>
 </transition>
-<transition id="T1">
+<transition id="a2">
 <graphics>
-<position x="870.0" y="240.0"/>
+<position x="675.0" y="420.0"/>
 </graphics>
 <name>
-<value>T1</value>
+<value>a2</value>
 <graphics>
 <offset x="-5.0" y="35.0"/>
 </graphics>
@@ -153,12 +173,12 @@
 <value>1</value>
 </priority>
 </transition>
-<transition id="T2">
+<transition id="b1">
 <graphics>
-<position x="510.0" y="450.0"/>
+<position x="675.0" y="150.0"/>
 </graphics>
 <name>
-<value>T2</value>
+<value>b1</value>
 <graphics>
 <offset x="-5.0" y="35.0"/>
 </graphics>
@@ -179,12 +199,12 @@
 <value>1</value>
 </priority>
 </transition>
-<transition id="T3">
+<transition id="b2">
 <graphics>
-<position x="975.0" y="450.0"/>
+<position x="675.0" y="570.0"/>
 </graphics>
 <name>
-<value>T3</value>
+<value>b2</value>
 <graphics>
 <offset x="-5.0" y="35.0"/>
 </graphics>
@@ -205,7 +225,7 @@
 <value>1</value>
 </priority>
 </transition>
-<arc id="P0 to T0" source="P0" target="T0">
+<arc id="a1 to flag1" source="a1" target="flag1">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -214,11 +234,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="734" y="184" curvePoint="false"/>
-<arcpath id="001" x="616" y="252" curvePoint="false"/>
+<arcpath id="000" x="681" y="317" curvePoint="false"/>
+<arcpath id="001" x="491" y="368" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="P0 to T1" source="P0" target="T1">
+<arc id="a1 to P1w" source="a1" target="P1w">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -227,11 +247,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="759" y="184" curvePoint="false"/>
-<arcpath id="001" x="876" y="252" curvePoint="false"/>
+<arcpath id="000" x="692" y="307" curvePoint="false"/>
+<arcpath id="001" x="867" y="242" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="P1 to T2" source="P1" target="T2">
+<arc id="a2 to flag2" source="a2" target="flag2">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -240,12 +260,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="598" y="378" curvePoint="false"/>
-<arcpath id="001" x="523" y="418" curvePoint="false"/>
-<arcpath id="002" x="522" y="447" curvePoint="false"/>
+<arcpath id="000" x="692" y="427" curvePoint="false"/>
+<arcpath id="001" x="867" y="376" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="P2 to T3" source="P2" target="T3">
+<arc id="a2 to P2w" source="a2" target="P2w">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -254,12 +273,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="895" y="377" curvePoint="false"/>
-<arcpath id="001" x="988" y="418" curvePoint="false"/>
-<arcpath id="002" x="987" y="447" curvePoint="false"/>
+<arcpath id="000" x="691" y="437" curvePoint="false"/>
+<arcpath id="001" x="867" y="501" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="P3 to T2" source="P3" target="T2">
+<arc id="b1 to P1s" source="b1" target="P1s">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -268,11 +286,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="732" y="462" curvePoint="false"/>
-<arcpath id="001" x="526" y="462" curvePoint="false"/>
+<arcpath id="000" x="681" y="162" curvePoint="false"/>
+<arcpath id="001" x="491" y="231" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="P4 to T3" source="P4" target="T3">
+<arc id="b2 to P2s" source="b2" target="P2s">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -281,12 +299,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="761" y="549" curvePoint="false"/>
-<arcpath id="001" x="988" y="508" curvePoint="false"/>
-<arcpath id="002" x="987" y="477" curvePoint="false"/>
+<arcpath id="000" x="681" y="582" curvePoint="false"/>
+<arcpath id="001" x="491" y="512" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="T0 to P1" source="T0" target="P1">
+<arc id="flag1 to a2" source="flag1" target="a2">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -295,11 +312,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="612" y="267" curvePoint="false"/>
-<arcpath id="001" x="612" y="357" curvePoint="false"/>
+<arcpath id="000" x="491" y="375" curvePoint="false"/>
+<arcpath id="001" x="682" y="427" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="T1 to P2" source="T1" target="P2">
+<arc id="flag2 to a1" source="flag2" target="a1">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -308,11 +325,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="882" y="267" curvePoint="false"/>
-<arcpath id="001" x="882" y="357" curvePoint="false"/>
+<arcpath id="000" x="867" y="367" curvePoint="false"/>
+<arcpath id="001" x="691" y="317" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="T2 to P0" source="T2" target="P0">
+<arc id="P1s to a1" source="P1s" target="a1">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -321,13 +338,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="516" y="462" curvePoint="false"/>
-<arcpath id="001" x="418" y="463" curvePoint="false"/>
-<arcpath id="002" x="418" y="178" curvePoint="false"/>
-<arcpath id="003" x="732" y="177" curvePoint="false"/>
+<arcpath id="000" x="491" y="241" curvePoint="false"/>
+<arcpath id="001" x="682" y="307" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="T2 to P4" source="T2" target="P4">
+<arc id="P1w to b1" source="P1w" target="b1">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -336,12 +351,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="522" y="477" curvePoint="false"/>
-<arcpath id="001" x="523" y="508" curvePoint="false"/>
-<arcpath id="002" x="732" y="549" curvePoint="false"/>
+<arcpath id="000" x="868" y="231" curvePoint="false"/>
+<arcpath id="001" x="691" y="162" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="T3 to P1" source="T3" target="P1">
+<arc id="P2s to a2" source="P2s" target="a2">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -350,12 +364,11 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="982" y="457" curvePoint="false"/>
-<arcpath id="001" x="699" y="378" curvePoint="true"/>
-<arcpath id="002" x="626" y="373" curvePoint="false"/>
+<arcpath id="000" x="491" y="502" curvePoint="false"/>
+<arcpath id="001" x="681" y="437" curvePoint="false"/>
 <type value="normal"/>
 </arc>
-<arc id="T3 to P3" source="T3" target="P3">
+<arc id="P2w to b2" source="P2w" target="b2">
 <graphics/>
 <inscription>
 <value>Default,1</value>
@@ -364,8 +377,8 @@
 <tagged>
 <value>false</value>
 </tagged>
-<arcpath id="000" x="981" y="467" curvePoint="false"/>
-<arcpath id="001" x="761" y="462" curvePoint="false"/>
+<arcpath id="000" x="868" y="512" curvePoint="false"/>
+<arcpath id="001" x="691" y="582" curvePoint="false"/>
 <type value="normal"/>
 </arc>
 </net>

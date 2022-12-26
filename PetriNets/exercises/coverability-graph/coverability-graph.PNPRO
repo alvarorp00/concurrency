@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This project file has been saved by the New GreatSPN Editor, v.100 --><project name="coverability-graph" version="121">
+  <gspn name="PT" show-color-cmd="false" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place label-y="-1.5" marking="2" name="P0" x="49.0" y="4.0"/>
+      <place name="P1" x="39.0" y="14.0"/>
+      <place name="P2" x="59.0" y="14.0"/>
+      <transition name="T0" nservers-x="0.5" type="EXP" x="39.55" y="4.0"/>
+      <transition label-y="2.0" name="T1" nservers-x="0.5" type="EXP" x="49.55" y="14.0"/>
+      <transition name="T2" nservers-x="0.5" type="EXP" x="59.55" y="4.0"/>
+    </nodes>
+    <edges>
+      <arc head="P0" kind="OUTPUT" tail="T0"/>
+      <arc head="T0" kind="INPUT" tail="P0"/>
+      <arc head="P1" kind="OUTPUT" tail="T0"/>
+      <arc head="T1" kind="INPUT" tail="P1"/>
+      <arc head="P2" kind="OUTPUT" tail="T1"/>
+      <arc head="T2" kind="INPUT" tail="P2"/>
+      <arc head="P0" kind="OUTPUT" tail="T2"/>
+      <arc head="T1" kind="INPUT" tail="P0">
+        <point x="50.0" y="10.0"/>
+      </arc>
+    </edges>
+  </gspn>
+</project>
