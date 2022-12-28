@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This project file has been saved by the New GreatSPN Editor, v.100 --><project name="notlive_bounded_notcyclic" version="121">
+  <gspn name="PT" show-color-cmd="false" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place marking="1" name="P0" x="30.0" y="21.0"/>
+      <place label-y="-2.0" name="P1" x="46.0" y="21.0"/>
+      <transition name="T0" nservers-x="0.5" type="EXP" x="38.55" y="21.0"/>
+      <transition label-x="1.0" name="T1" nservers-x="0.5" type="EXP" x="54.55" y="21.0"/>
+    </nodes>
+    <edges>
+      <arc head="T0" kind="INPUT" tail="P0"/>
+      <arc head="P1" kind="OUTPUT" tail="T0"/>
+      <arc head="T1" kind="INPUT" tail="P1"/>
+      <arc head="P1" kind="OUTPUT" tail="T1">
+        <point x="55.0" y="27.0"/>
+        <point x="47.0" y="27.0"/>
+      </arc>
+    </edges>
+  </gspn>
+</project>

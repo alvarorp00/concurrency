@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This project file has been saved by the New GreatSPN Editor, v.100 --><project name="live_unbounded_cyclic" version="121">
+  <gspn name="PT" show-color-cmd="false" show-fluid-cmd="false" show-timed-cmd="false" view-rates="false">
+    <nodes>
+      <place marking="1" name="P0" x="29.0" y="9.0"/>
+      <place name="P2" x="29.0" y="29.0"/>
+      <place name="P3" x="49.0" y="29.0"/>
+      <transition name="T0" nservers-x="0.5" type="EXP" x="23.55" y="19.0"/>
+      <transition name="T1" nservers-x="0.5" type="EXP" x="38.55" y="19.0"/>
+      <transition name="T2" nservers-x="0.5" type="EXP" x="49.55" y="19.0"/>
+    </nodes>
+    <edges>
+      <arc head="T0" kind="INPUT" tail="P0">
+        <point x="27.0" y="10.0"/>
+        <point x="27.0" y="20.0"/>
+      </arc>
+      <arc head="P2" kind="OUTPUT" tail="T0">
+        <point x="20.5" y="20.0"/>
+        <point x="20.5" y="30.0"/>
+      </arc>
+      <arc head="T1" kind="INPUT" tail="P2"/>
+      <arc head="P3" kind="OUTPUT" tail="T1"/>
+      <arc head="P0" kind="OUTPUT" tail="T1">
+        <point x="35.5" y="20.0"/>
+        <point x="35.5" y="10.0"/>
+      </arc>
+      <arc head="T2" kind="INPUT" tail="P3"/>
+    </edges>
+  </gspn>
+</project>
